@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import '../styles/Validator.css'
 
 const Validator = (props) => {
@@ -28,8 +28,8 @@ const Validator = (props) => {
         <label htmlFor="passwordConfirm">Confirm password</label>
 
         <button type="submit" onClick={props.handleSubmit}>Sign Up</button>
+        <button type="cancel" className='cancel'>Cancel</button>
         <p id='message' className={pClassName}>Passwords must match.</p>
-        {/* <button type="cancel">X</button> */}
       </form>
     </div>
   )

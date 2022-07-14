@@ -16,7 +16,6 @@ const App = () => {
           setUsername(formItem)
         } else {
           setUsername('')
-          console.log('Invalid username!')
         }
         break
       case "password":
@@ -24,25 +23,21 @@ const App = () => {
           setPassword(formItem)
         } else {
           setPassword(null)
-          // console.log('Invalid password!')
         }
         break
       case "passwordConfirm":
         if (formItem === password) {
-          console.log('Passwords Match!')
         } else {
-          console.log('No match!')
         }
         setPasswordConfirm(formItem)
         break
       default:
         setValid(false)
     }
-    if (username !== '' && password === passwordConfirm && password !== null) {
+    if (password !== null && password === passwordConfirm && username !== '') {
       setValid(true)
     } else {
       setValid(false)
-      console.log('No!')
     }
   }
 
@@ -56,7 +51,7 @@ const App = () => {
   }
 
   return (
-    <Validator valid={valid} handleSubmit={handleSubmit} collectFormInfo={collectFormInfo} />
+    <Validator valid={valid} handleSubmit={(e) => handleSubmit(e)} collectFormInfo={(e) => collectFormInfo(e)} />
   )
 }
 
